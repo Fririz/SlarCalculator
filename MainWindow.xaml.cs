@@ -19,6 +19,8 @@ namespace SlarCalculator
         public MainWindow()
         {
             InitializeComponent();
+            //TODO Починить отображение кнопок
+
         }
     }
 }

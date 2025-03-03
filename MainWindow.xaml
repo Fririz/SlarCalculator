@@ -6,7 +6,43 @@
         xmlns:local="clr-namespace:SlarCalculator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" ShowGridLines="True" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="0" Grid.Column="0">Choose size</TextBlock>
+            
+            <Grid Grid.Column="1" ShowGridLines="True" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="+" Grid.Column="0"  HorizontalAlignment="Stretch"></Button>
+                <Button Content="-" Grid.Column="1"  HorizontalAlignment="Stretch"></Button>
+            </Grid>
 
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="0" Grid.Column="2" >Choose Method</TextBlock>
+
+            <ComboBox Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <ComboBoxItem>Метод Гауса</ComboBoxItem>
+                <ComboBoxItem>Метод обертання</ComboBoxItem>
+                <ComboBoxItem>Метод Гауса-Холецького</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        
+        <Grid Grid.Row="1" x:Name="SLAR">
+            
+        </Grid>
+        
+        
     </Grid>
 </Window>

@@ -16,10 +16,29 @@ namespace SlarCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        int size = 2;
         public MainWindow()
         {
             InitializeComponent();
-            //TODO Починить отображение кнопок
+            ChangeSizeOfSLAR();
+
+        }
+
+        void ChangeSizeOfSLAR()
+        {
+            Grid myGrid = SLAR;
+            myGrid.ShowGridLines = true;
+            // Define the Columns
+            ColumnDefinition[] ArrayOfColumn = new ColumnDefinition[size];
+            for (int i = 0; i < size + 1; i++)
+            {
+                myGrid.ColumnDefinitions.Add(new ColumnDefinition());
+            }
+            for (int i = 0; i < size; i++)
+            {
+                myGrid.RowDefinitions.Add(new RowDefinition());
+            }
+
 
         }
     }

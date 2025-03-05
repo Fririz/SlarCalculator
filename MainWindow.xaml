@@ -54,7 +54,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" x:Name="sizeOfMatrix">Size:</TextBlock>
-                <Button Click="Calculate" Grid.Column="1" FontSize="20">Calculate</Button>
+                <Button  Grid.Column="1" FontSize="20">Calculate</Button>
                 <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top">Result:</TextBlock>
             </Grid>
         </Grid>

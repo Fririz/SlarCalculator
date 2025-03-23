@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SlarCalculator.Classes
+namespace SlarCalculator.Solvers
 {
     interface ISolver
     {

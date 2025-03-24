@@ -15,21 +15,24 @@ namespace SlarCalculator.Classes
     {
         private Grid grid;
         private TextBlock sizeOfMatrix;
-        /*
+        public TextBox[] matrixElem;
+        public TextBox[] freeMembers;
+
         //сделать
-        int CounterMatrixElem = 0;
-        int CounterFreeMembers = 0;
-        public TextBox[] matrixElem {  get; }
-        public TextBox[] freeMembers { get; }
-        */
-        public GridManager(Grid grid, TextBlock sizeOfMatrix)
+        public GridManager(Grid grid, TextBlock sizeOfMatrix, int startSize)
         {
             this.grid = grid;
             this.sizeOfMatrix = sizeOfMatrix;
+
         }
 
         public void UpdateGrid(int size)
         {
+            matrixElem = new TextBox[size + 50];
+            freeMembers = new TextBox[size + 50];
+            int CounterMatrixElem = 0;
+            int CounterFreeMembers = 0;
+            
             grid.Children.Clear();
             grid.RowDefinitions.Clear();
             grid.ColumnDefinitions.Clear();
@@ -50,7 +53,10 @@ namespace SlarCalculator.Classes
                 {
                     if (j % 2 == 0 && j < size * 2)
                     {
-                        AddTextBox(i, j, "matrixElem");
+                        TextBox textbox = new TextBox();
+                        AddTextBox(i, j, "matrixElem", textbox);
+                        matrixElem[CounterMatrixElem] = textbox;
+                        CounterMatrixElem++;
                     }
                     else if (j % 2 != 0 && j < size * 2)
                     {
@@ -62,25 +68,27 @@ namespace SlarCalculator.Classes
                     }
                     else if (j == size * 2 + 1)
                     {
-                        AddTextBox(i, j, "freeMembers");
+                        TextBox textbox = new TextBox();
+                        AddTextBox(i, j, "freeMembers", textbox);
+                        freeMembers[CounterFreeMembers] = textbox;
+                        CounterFreeMembers++;
                     }
+
                 }
             }
 
             sizeOfMatrix.Text = $"Size: {size}";
         }
 
-        private void AddTextBox(int row, int column, string name)
+        private void AddTextBox(int row, int column, string name, TextBox textBox)
         {
-            TextBox textbox = new TextBox
-            {
-                Foreground = Brushes.White,
-                Background = Brushes.MidnightBlue,
-                Name = name
-            };
-            Grid.SetColumn(textbox, column);
-            Grid.SetRow(textbox, row);
-            grid.Children.Add(textbox);
+            textBox.Foreground = Brushes.White;
+            textBox.Background = Brushes.MidnightBlue;
+            textBox.Name = name;
+            Grid.SetColumn(textBox, column);
+            Grid.SetRow(textBox, row);
+
+            grid.Children.Add(textBox);
 
         }
         private void AddTextBlock(int row, int column, string text)

@@ -22,7 +22,7 @@ namespace SlarCalculator
         public MainWindow()
         {
             InitializeComponent();
-            gridManager = new GridManager(SLAR, sizeOfMatrix);
+            gridManager = new GridManager(SLAR, sizeOfMatrix, size);
             ChangeSizeOfSLAR();
 
         }
@@ -55,8 +55,12 @@ namespace SlarCalculator
         }
         void Calculate(object sender, RoutedEventArgs e)
         {
-            int[,] matrix = new int[size,size];
-            int[] freeMembers = new int[size];
+            string freeMem = "";
+            for (int i = 0; i < 3; i++)
+            {
+                freeMem = freeMem + gridManager.freeMembers[i].Text + "\n";
+            }
+            MessageBox.Show(freeMem);
             //TextBox[] textboxes = new TextBox[];
             //TODO
         }

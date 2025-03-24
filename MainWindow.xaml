@@ -36,7 +36,7 @@
 
             <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="0" Grid.Column="2" >Choose Method</TextBlock>
 
-            <ComboBox Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <ComboBox Name="Choose" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <ComboBoxItem>Метод Гауса</ComboBoxItem>
                 <ComboBoxItem>Метод обертання</ComboBoxItem>
                 <ComboBoxItem>Метод Гауса-Холецького</ComboBoxItem>

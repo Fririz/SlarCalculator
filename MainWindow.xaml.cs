@@ -55,15 +55,67 @@ namespace SlarCalculator
         }
         void Calculate(object sender, RoutedEventArgs e)
         {
-            string freeMem = "";
-            for (int i = 0; i < 3; i++)
+
+            if (Validation() == false)
             {
-                freeMem = freeMem + gridManager.freeMembers[i].Text + "\n";
+                MessageBox.Show("ERROR");
+                return;
             }
-            MessageBox.Show(freeMem);
-            //TextBox[] textboxes = new TextBox[];
+            
+            decimal[] matrixElements = new decimal[size * size];
+            decimal[] freeMembers = new decimal[size];
+
+            for (int i = 0; i < size * size; i++) 
+            { 
+                matrixElements[i] = Convert.ToDecimal(gridManager.matrixElem[i].Text);
+            }
+            for (int i = 0; i < size; i++)
+            {
+                freeMembers[i] = Convert.ToDecimal(gridManager.freeMembers[i].Text);
+            }
+
             //TODO
+            if (Choose.SelectedIndex == 0)
+            {
+                MessageBox.Show("Метод Гауса");
+            }
+            else if (Choose.SelectedIndex == 1)
+            {
+                MessageBox.Show("Метод Обертання");
+            }
+            else if (Choose.SelectedIndex == 2)
+            {
+                MessageBox.Show("Метод Гауса-Холецького");
+            }
+
         }
+        bool Validation()
+        {
+            if (gridManager == null || gridManager.matrixElem == null || gridManager.freeMembers == null)
+            {
+                return false;
+            }
+            for (int i = 0; i < size * size; i++)
+            {
+
+                if (!Decimal.TryParse(gridManager.matrixElem[i].Text, out decimal n))
+                {
+                    return false;
+                }
+
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                if (!Decimal.TryParse(gridManager.freeMembers[i].Text, out decimal n))
+                {
+                    return false;
+                }
+
+            }
+            return true;
+        }
+    
 
         void ChangeSizeOfSLAR()
         {

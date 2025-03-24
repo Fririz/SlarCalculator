@@ -28,8 +28,8 @@ namespace SlarCalculator.Classes
 
         public void UpdateGrid(int size)
         {
-            matrixElem = new TextBox[size + 50];
-            freeMembers = new TextBox[size + 50];
+            matrixElem = new TextBox[size * size];
+            freeMembers = new TextBox[size];
             int CounterMatrixElem = 0;
             int CounterFreeMembers = 0;
             
@@ -54,7 +54,7 @@ namespace SlarCalculator.Classes
                     if (j % 2 == 0 && j < size * 2)
                     {
                         TextBox textbox = new TextBox();
-                        AddTextBox(i, j, "matrixElem", textbox);
+                        AddTextBox(i, j, textbox);
                         matrixElem[CounterMatrixElem] = textbox;
                         CounterMatrixElem++;
                     }
@@ -69,7 +69,7 @@ namespace SlarCalculator.Classes
                     else if (j == size * 2 + 1)
                     {
                         TextBox textbox = new TextBox();
-                        AddTextBox(i, j, "freeMembers", textbox);
+                        AddTextBox(i, j, textbox);
                         freeMembers[CounterFreeMembers] = textbox;
                         CounterFreeMembers++;
                     }
@@ -80,11 +80,10 @@ namespace SlarCalculator.Classes
             sizeOfMatrix.Text = $"Size: {size}";
         }
 
-        private void AddTextBox(int row, int column, string name, TextBox textBox)
+        private void AddTextBox(int row, int column, TextBox textBox)
         {
             textBox.Foreground = Brushes.White;
             textBox.Background = Brushes.MidnightBlue;
-            textBox.Name = name;
             Grid.SetColumn(textBox, column);
             Grid.SetRow(textBox, row);
 

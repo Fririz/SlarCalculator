@@ -18,7 +18,7 @@ namespace SlarCalculator.Classes
         public TextBox[] matrixElem;
         public TextBox[] freeMembers;
 
-        //сделать
+
         public GridManager(Grid grid, TextBlock sizeOfMatrix, int startSize)
         {
             this.grid = grid;
@@ -36,7 +36,7 @@ namespace SlarCalculator.Classes
             grid.Children.Clear();
             grid.RowDefinitions.Clear();
             grid.ColumnDefinitions.Clear();
-            grid.ShowGridLines = true;
+
 
             for (int i = 0; i < 22; i++)
             {
@@ -82,8 +82,10 @@ namespace SlarCalculator.Classes
 
         private void AddTextBox(int row, int column, TextBox textBox)
         {
-            textBox.Foreground = Brushes.White;
-            textBox.Background = Brushes.MidnightBlue;
+
+            var bc = new BrushConverter();
+            textBox.Background = (Brush)bc.ConvertFrom("#5483B3");
+            textBox.Foreground = (Brush)bc.ConvertFrom("#C1E8FF");
             Grid.SetColumn(textBox, column);
             Grid.SetRow(textBox, row);
 

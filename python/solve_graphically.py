@@ -3,8 +3,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 import sys
 
-# Включаем интерактивный режим (только для обычного скрипта)
-matplotlib.use('TkAgg')  # Убедись, что установлен tkinter
+
+matplotlib.use('TkAgg')
 
 def calculate_line(a, b, c, x_range):
     if b != 0:
@@ -20,10 +20,10 @@ def setup_axes():
     plt.axhline(0, color='black', linewidth=0.8)
     plt.axvline(0, color='black', linewidth=0.8)
     plt.grid(True, which='both', linestyle='--', linewidth=0.5)
-    # убраны ограничения осей
+
 
 def plot_system(a1, b1, c1, a2, b2, c2):
-    x_vals = np.linspace(-100, 100, 1000)  # Широкий диапазон
+    x_vals = np.linspace(-100, 100, 1000)
 
     y1_vals, x1_const = calculate_line(a1, b1, c1, x_vals)
     y2_vals, x2_const = calculate_line(a2, b2, c2, x_vals)
